@@ -15,8 +15,13 @@ namespace eRestaurantSystem.DAL.Entities
     public class SpecialEvent
     {
         [Key]
+        [Required(ErrorMessage="An Event Code Is Required (only one character")]
+        [StringLength(1,ErrorMessage="Event Code only one Charater in Length")]        
         public string EventCode { get; set; }
+        [Required(ErrorMessage="Description is a Required Field")]
+        [StringLength(30,ErrorMessage="Description has a maximum Length of 30 Characters")]
         public string Description { get; set; }
+        
         public bool Active { get; set; }
 
         // Navigational virtual properties
@@ -24,6 +29,11 @@ namespace eRestaurantSystem.DAL.Entities
 
         public virtual ICollection<Reservation> Reservations { get; set; }
 
+        //default values can be set in the class  Contructor
 
+        public SpecialEvent()
+        {
+            Active = true;
+        }
     }
 }
