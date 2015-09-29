@@ -18,7 +18,21 @@
         </tr>
         <tr>
             <td colspan="2" align="center"> 
-                <asp:GridView ID="ReservationList" runat="server"></asp:GridView>
+                <asp:GridView ID="ReservationList" runat="server" AllowPaging="True" AutoGenerateColumns="False" DataSourceID="ODSReservations">
+                    <Columns>
+                        <asp:BoundField DataField="CustomerName" HeaderText="Name" SortExpression="CustomerName" />
+                        <asp:BoundField DataField="ReservationDate" HeaderText="ReservationDate" SortExpression="ReservationDate" DataFormatString="{0:MMM,dd,yyyy}" >
+                        <HeaderStyle HorizontalAlign="Center" />
+                        <ItemStyle HorizontalAlign="Center" />
+                        </asp:BoundField>
+                        <asp:BoundField DataField="NumberInParty" HeaderText="NumberInParty" SortExpression="NumberInParty" />
+                        <asp:BoundField DataField="ContactPhone" HeaderText="ContactPhone" SortExpression="ContactPhone" />
+                        <asp:BoundField DataField="ReservationStatus" HeaderText="ReservationStatus" SortExpression="ReservationStatus" />
+                    </Columns>
+                    <EmptyDataTemplate>
+                        No Data to Display At This Time
+                    </EmptyDataTemplate>
+                </asp:GridView>
             </td>
             
         </tr>
@@ -33,7 +47,11 @@
     </table>
 
     <asp:ObjectDataSource ID="ODSSpecialEvents" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="SpecialEvents_List" TypeName="eRestaurantSystem.BLL.AdminController"></asp:ObjectDataSource>
-    <asp:ObjectDataSource ID="ODSReservations" runat="server"></asp:ObjectDataSource>
+    <asp:ObjectDataSource ID="ODSReservations" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetReservationsByEventCode" TypeName="eRestaurantSystem.BLL.AdminController">
+        <SelectParameters>
+            <asp:ControlParameter ControlID="SpecialEventList" Name="eventcode" PropertyName="SelectedValue" Type="String" />
+        </SelectParameters>
+    </asp:ObjectDataSource>
 </asp:Content>
 
 
