@@ -37,52 +37,10 @@
                             <td>
                                 <asp:Label ID="ReservationStatusLabel" runat="server" Text='<%# Eval("ReservationStatus") %>' />
                             </td>
-                            <td>
-                                <asp:Label ID="EventCodeLabel" runat="server" Text='<%# Eval("EventCode") %>' />
-                            </td>
-                            <td>
-                                <asp:Label ID="EventLabel" runat="server" Text='<%# Eval("Event") %>' />
-                            </td>
-                            <td>
-                                <asp:Label ID="TablesLabel" runat="server" Text='<%# Eval("Tables") %>' />
-                            </td>
+                            
                         </tr>
                     </AlternatingItemTemplate>
-                    <EditItemTemplate>
-                        <tr style="background-color:#008A8C;color: #FFFFFF;">
-                            <td>
-                                <asp:Button ID="UpdateButton" runat="server" CommandName="Update" Text="Update" />
-                                <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Cancel" />
-                            </td>
-                            <td>
-                                <asp:TextBox ID="ReservationIDTextBox" runat="server" Text='<%# Bind("ReservationID") %>' />
-                            </td>
-                            <td>
-                                <asp:TextBox ID="CustomerNameTextBox" runat="server" Text='<%# Bind("CustomerName") %>' />
-                            </td>
-                            <td>
-                                <asp:TextBox ID="ReservationDateTextBox" runat="server" Text='<%# Bind("ReservationDate") %>' />
-                            </td>
-                            <td>
-                                <asp:TextBox ID="NumberInPartyTextBox" runat="server" Text='<%# Bind("NumberInParty") %>' />
-                            </td>
-                            <td>
-                                <asp:TextBox ID="ContactPhoneTextBox" runat="server" Text='<%# Bind("ContactPhone") %>' />
-                            </td>
-                            <td>
-                                <asp:TextBox ID="ReservationStatusTextBox" runat="server" Text='<%# Bind("ReservationStatus") %>' />
-                            </td>
-                            <td>
-                                <asp:TextBox ID="EventCodeTextBox" runat="server" Text='<%# Bind("EventCode") %>' />
-                            </td>
-                            <td>
-                                <asp:TextBox ID="EventTextBox" runat="server" Text='<%# Bind("Event") %>' />
-                            </td>
-                            <td>
-                                <asp:TextBox ID="TablesTextBox" runat="server" Text='<%# Bind("Tables") %>' />
-                            </td>
-                        </tr>
-                    </EditItemTemplate>
+                   
                     <EmptyDataTemplate>
                         <table runat="server" style="background-color: #FFFFFF;border-collapse: collapse;border-color: #999999;border-style:none;border-width:1px;">
                             <tr>
@@ -90,41 +48,7 @@
                             </tr>
                         </table>
                     </EmptyDataTemplate>
-                    <InsertItemTemplate>
-                        <tr style="">
-                            <td>
-                                <asp:Button ID="InsertButton" runat="server" CommandName="Insert" Text="Insert" />
-                                <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Clear" />
-                            </td>
-                            <td>
-                                <asp:TextBox ID="ReservationIDTextBox" runat="server" Text='<%# Bind("ReservationID") %>' />
-                            </td>
-                            <td>
-                                <asp:TextBox ID="CustomerNameTextBox" runat="server" Text='<%# Bind("CustomerName") %>' />
-                            </td>
-                            <td>
-                                <asp:TextBox ID="ReservationDateTextBox" runat="server" Text='<%# Bind("ReservationDate") %>' />
-                            </td>
-                            <td>
-                                <asp:TextBox ID="NumberInPartyTextBox" runat="server" Text='<%# Bind("NumberInParty") %>' />
-                            </td>
-                            <td>
-                                <asp:TextBox ID="ContactPhoneTextBox" runat="server" Text='<%# Bind("ContactPhone") %>' />
-                            </td>
-                            <td>
-                                <asp:TextBox ID="ReservationStatusTextBox" runat="server" Text='<%# Bind("ReservationStatus") %>' />
-                            </td>
-                            <td>
-                                <asp:TextBox ID="EventCodeTextBox" runat="server" Text='<%# Bind("EventCode") %>' />
-                            </td>
-                            <td>
-                                <asp:TextBox ID="EventTextBox" runat="server" Text='<%# Bind("Event") %>' />
-                            </td>
-                            <td>
-                                <asp:TextBox ID="TablesTextBox" runat="server" Text='<%# Bind("Tables") %>' />
-                            </td>
-                        </tr>
-                    </InsertItemTemplate>
+                   
                     <ItemTemplate>
                         <tr style="background-color:#DCDCDC;color: #000000;">
                             <td>
@@ -145,15 +69,7 @@
                             <td>
                                 <asp:Label ID="ReservationStatusLabel" runat="server" Text='<%# Eval("ReservationStatus") %>' />
                             </td>
-                            <td>
-                                <asp:Label ID="EventCodeLabel" runat="server" Text='<%# Eval("EventCode") %>' />
-                            </td>
-                            <td>
-                                <asp:Label ID="EventLabel" runat="server" Text='<%# Eval("Event") %>' />
-                            </td>
-                            <td>
-                                <asp:Label ID="TablesLabel" runat="server" Text='<%# Eval("Tables") %>' />
-                            </td>
+                            
                         </tr>
                     </ItemTemplate>
                     <LayoutTemplate>
@@ -168,9 +84,7 @@
                                             <th runat="server">NumberInParty</th>
                                             <th runat="server">ContactPhone</th>
                                             <th runat="server">ReservationStatus</th>
-                                            <th runat="server">EventCode</th>
-                                            <th runat="server">Event</th>
-                                            <th runat="server">Tables</th>
+                                          
                                         </tr>
                                         <tr id="itemPlaceholder" runat="server">
                                         </tr>
@@ -190,37 +104,7 @@
                             </tr>
                         </table>
                     </LayoutTemplate>
-                    <SelectedItemTemplate>
-                        <tr style="background-color:#008A8C;font-weight: bold;color: #FFFFFF;">
-                            <td>
-                                <asp:Label ID="ReservationIDLabel" runat="server" Text='<%# Eval("ReservationID") %>' />
-                            </td>
-                            <td>
-                                <asp:Label ID="CustomerNameLabel" runat="server" Text='<%# Eval("CustomerName") %>' />
-                            </td>
-                            <td>
-                                <asp:Label ID="ReservationDateLabel" runat="server" Text='<%# Eval("ReservationDate") %>' />
-                            </td>
-                            <td>
-                                <asp:Label ID="NumberInPartyLabel" runat="server" Text='<%# Eval("NumberInParty") %>' />
-                            </td>
-                            <td>
-                                <asp:Label ID="ContactPhoneLabel" runat="server" Text='<%# Eval("ContactPhone") %>' />
-                            </td>
-                            <td>
-                                <asp:Label ID="ReservationStatusLabel" runat="server" Text='<%# Eval("ReservationStatus") %>' />
-                            </td>
-                            <td>
-                                <asp:Label ID="EventCodeLabel" runat="server" Text='<%# Eval("EventCode") %>' />
-                            </td>
-                            <td>
-                                <asp:Label ID="EventLabel" runat="server" Text='<%# Eval("Event") %>' />
-                            </td>
-                            <td>
-                                <asp:Label ID="TablesLabel" runat="server" Text='<%# Eval("Tables") %>' />
-                            </td>
-                        </tr>
-                    </SelectedItemTemplate>
+                    
                 </asp:ListView>
             </td>
             
