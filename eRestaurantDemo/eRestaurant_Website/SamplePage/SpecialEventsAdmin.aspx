@@ -21,13 +21,20 @@
                 <asp:GridView ID="ReservationList" runat="server" AllowPaging="True" AutoGenerateColumns="False" DataSourceID="ODSReservations">
                     <Columns>
                         <asp:BoundField DataField="CustomerName" HeaderText="Name" SortExpression="CustomerName" />
-                        <asp:BoundField DataField="ReservationDate" HeaderText="ReservationDate" SortExpression="ReservationDate" DataFormatString="{0:MMM,dd,yyyy}" >
+                        <asp:BoundField DataField="ReservationDate" HeaderText="Date" SortExpression="ReservationDate" DataFormatString="{0:MMM,dd,yyyy}" >
+                        <FooterStyle HorizontalAlign="Center" />
                         <HeaderStyle HorizontalAlign="Center" />
                         <ItemStyle HorizontalAlign="Center" />
                         </asp:BoundField>
-                        <asp:BoundField DataField="NumberInParty" HeaderText="NumberInParty" SortExpression="NumberInParty" />
-                        <asp:BoundField DataField="ContactPhone" HeaderText="ContactPhone" SortExpression="ContactPhone" />
-                        <asp:BoundField DataField="ReservationStatus" HeaderText="ReservationStatus" SortExpression="ReservationStatus" />
+                        <asp:BoundField DataField="NumberInParty" HeaderText="Size" SortExpression="NumberInParty" >
+                        <FooterStyle HorizontalAlign="Right" />
+                        <HeaderStyle HorizontalAlign="Right" />
+                        </asp:BoundField>
+                        <asp:BoundField DataField="ContactPhone" HeaderText="Phone" SortExpression="ContactPhone" >
+                        <FooterStyle HorizontalAlign="Center" />
+                        <HeaderStyle HorizontalAlign="Center" />
+                        </asp:BoundField>
+                        <asp:BoundField DataField="ReservationStatus" HeaderText="Status" SortExpression="ReservationStatus" />
                     </Columns>
                     <EmptyDataTemplate>
                         No Data to Display At This Time
