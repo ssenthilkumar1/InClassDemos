@@ -17,29 +17,7 @@
         <tr>
             <td colspan="2" align="center"> 
                 <asp:ListView ID="ReservationList" runat="server" DataSourceID="ODSReservations">
-                    <AlternatingItemTemplate>
-                        <tr style="background-color:#FFF8DC;">
-                            <td>
-                                <asp:Label ID="ReservationIDLabel" runat="server" Text='<%# Eval("ReservationID") %>' />
-                            </td>
-                            <td>
-                                <asp:Label ID="CustomerNameLabel" runat="server" Text='<%# Eval("CustomerName") %>' />
-                            </td>
-                            <td>
-                                <asp:Label ID="ReservationDateLabel" runat="server" Text='<%# Eval("ReservationDate") %>' />
-                            </td>
-                            <td>
-                                <asp:Label ID="NumberInPartyLabel" runat="server" Text='<%# Eval("NumberInParty") %>' />
-                            </td>
-                            <td>
-                                <asp:Label ID="ContactPhoneLabel" runat="server" Text='<%# Eval("ContactPhone") %>' />
-                            </td>
-                            <td>
-                                <asp:Label ID="ReservationStatusLabel" runat="server" Text='<%# Eval("ReservationStatus") %>' />
-                            </td>
-                            
-                        </tr>
-                    </AlternatingItemTemplate>
+                    
                    
                     <EmptyDataTemplate>
                         <table runat="server" style="background-color: #FFFFFF;border-collapse: collapse;border-color: #999999;border-style:none;border-width:1px;">
@@ -50,7 +28,29 @@
                     </EmptyDataTemplate>
                    
                     <ItemTemplate>
-                        <tr style="background-color:#DCDCDC;color: #000000;">
+                        <tr style="background-color:#DCDCDC;co<AlternatingItemTemplate>
+                        <tr style="background-color:#FFF8DC;">
+                            <td>
+                                <asp:Label ID="Label1" runat="server" Text='<%# Eval("ReservationID") %>' />
+                            </td>
+                            <td>
+                                <asp:Label ID="Label2" runat="server" Text='<%# Eval("CustomerName") %>' />
+                            </td>
+                            <td>
+                                <asp:Label ID="Label3" runat="server" Text='<%# Eval("ReservationDate") %>' />
+                            </td>
+                            <td>
+                                <asp:Label ID="Label4" runat="server" Text='<%# Eval("NumberInParty") %>' />
+                            </td>
+                            <td>
+                                <asp:Label ID="Label5" runat="server" Text='<%# Eval("ContactPhone") %>' />
+                            </td>
+                            <td>
+                                <asp:Label ID="Label6" runat="server" Text='<%# Eval("ReservationStatus") %>' />
+                            </td>
+                            
+                        </tr>
+                    </AlternatingItemTemplate>lor: #000000;">
                             <td>
                                 <asp:Label ID="ReservationIDLabel" runat="server" Text='<%# Eval("ReservationID") %>' />
                             </td>
