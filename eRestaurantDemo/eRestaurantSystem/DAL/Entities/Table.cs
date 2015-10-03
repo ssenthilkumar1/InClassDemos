@@ -40,6 +40,7 @@ namespace eRestaurantSystem.DAL.Entities
 
 
         public virtual ICollection<Reservation> Reservations { get; set; }
+        public virtual ICollection<Bill> Bills { get; set; }
 
 
         //set Boolean values

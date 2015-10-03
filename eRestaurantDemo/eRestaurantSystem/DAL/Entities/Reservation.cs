@@ -47,6 +47,7 @@ namespace eRestaurantSystem.DAL.Entities
 
 
         public virtual ICollection<Table> Tables { get; set; }
+        public virtual ICollection<Bill> Bills { get; set; }
 
     }
 }

@@ -31,8 +31,11 @@ namespace eRestaurantSystem.DAL.Entities
         [Required(ErrorMessage = "Every menu item must be categorized")]
         public int MenuCategoryID { get; set; }
 
+        //navigational property
+
         public virtual MenuCategory Category { get; set; }
 
+        public virtual ICollection<BillItem> BillItems { get; set; }
         public Item()
         {
             Active = true;

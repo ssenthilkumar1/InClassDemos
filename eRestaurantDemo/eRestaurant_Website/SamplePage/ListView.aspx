@@ -28,7 +28,7 @@
                     </EmptyDataTemplate>
                    
                     <ItemTemplate>
-                        <tr style="background-color:#DCDCDC;co<AlternatingItemTemplate>
+                        <tr style="background-color:#DCDCDC;">AlternatingItemTemplate>
                         <tr style="background-color:#FFF8DC;">
                             <td>
                                 <asp:Label ID="Label1" runat="server" Text='<%# Eval("ReservationID") %>' />
@@ -50,7 +50,7 @@
                             </td>
                             
                         </tr>
-                    </AlternatingItemTemplate>lor: #000000;">
+                    </"AlternatingItemTemplate>lor: #000000;">
                             <td>
                                 <asp:Label ID="ReservationIDLabel" runat="server" Text='<%# Eval("ReservationID") %>' />
                             </td>
