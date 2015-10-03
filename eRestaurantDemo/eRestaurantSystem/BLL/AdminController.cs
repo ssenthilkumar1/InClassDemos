@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 using eRestaurantSystem.DAL;
 using eRestaurantSystem.DAL.Entities;
 using System.ComponentModel; //Object Data Source
+using eRestaurantSystem.DAL.DTOs;
+using eRestaurantSystem.DAL.POCOs;
 #endregion
 
 namespace eRestaurantSystem.BLL
@@ -41,7 +43,7 @@ namespace eRestaurantSystem.BLL
         }
 
 
-
+//getting data from the reservation table
 
         [DataObjectMethod(DataObjectMethodType.Select, false)]
         public List<Reservation> GetReservationsByEventCode(string eventcode)
@@ -64,6 +66,44 @@ namespace eRestaurantSystem.BLL
                               select item;
                 return results.ToList();
 
+            }
+
+
+        }
+
+
+        [DataObjectMethod(DataObjectMethodType.Select, false)]
+
+        public List<ReservationsByDate> GetReservationsByDate(string reservationdate)
+        {
+            using (var context = new eRestaurantContext())
+            {
+                //Linq is not cooperative with DateTime
+
+                int theYear = (DateTime.Parse(reservationdate)).Year;
+                int theMonth = (DateTime.Parse(reservationdate)).Month;
+                int theDay = (DateTime.Parse(reservationdate)).Day;
+
+                var results = from eventitem in context.SpecialEvents
+                              orderby eventitem.Description
+                              select new ReservationsByDate() // a new instance for the specialevent row on the table
+                              {
+                                  Description = eventitem.Description,
+                                  Reservations = from row in eventitem.Reservations
+                                                 where row.ReservationDate.Year == theYear &&
+                                                 row.ReservationDate.Month == theMonth &&
+                                                 row.ReservationDate.Day == theDay
+                                                 select new ReservationDetail() //new instance for each reservation of a particular specialevent code
+                                                 {
+                                                     CustomerName = row.CustomerName,
+                                                     ReservationDate = row.ReservationDate,
+                                                     NumberInParty = row.NumberInParty,
+                                                     ContactPhone = row.ContactPhone,
+                                                     ReservationStatus = row.ReservationStatus
+                                                 }
+                              };
+
+                return results.ToList();
             }
 
 
