@@ -18,6 +18,89 @@ namespace eRestaurantSystem.BLL
     public class AdminController
     {
         #region Queries
+
+         [DataObjectMethod(DataObjectMethodType.Select, false)]
+         public List<Waiter> Waiters_List()
+         {
+
+             using (var context = new eRestaurantContext())
+             {
+                 
+                 var results = from item in context.Waiters
+                               orderby item.LastName,item.FirstName
+                               select item;
+                 return results.ToList(); // null,one or mnore rows
+
+             }
+
+         }
+
+
+         [DataObjectMethod(DataObjectMethodType.Select, false)]
+         public Waiter GetWaiterByID(int waiterid)
+         {
+
+             using (var context = new eRestaurantContext())
+             {
+
+                 var results = from item in context.Waiters
+                               where item.WaiterID == waiterid
+                               select item;
+                 return results.FirstOrDefault(); // only one row
+
+             }
+         }
+
+         [DataObjectMethod(DataObjectMethodType.Insert, false)]
+         public void Waiter_Add(Waiter item)
+         {
+             //set context
+             using (eRestaurantContext context = new eRestaurantContext())
+             {
+                 // these methods are executed using an instance level item
+                 //set up an instance pointer and intialize the pointer to null
+
+                 Waiter added = null;
+                 //setup the command to execute the add
+                 added = context.Waiters.Add(item);
+
+                 //command is not executed until it is actually saved.
+                 context.SaveChanges();
+             }
+         }
+
+         [DataObjectMethod(DataObjectMethodType.Update, false)]
+         public void Waiter_Update(Waiter item)
+         {
+             //set context
+             using (eRestaurantContext context = new eRestaurantContext())
+             {
+                 // indicate the updating item instance
+                 //alter the modified status flag for the particular instance
+
+                 context.Entry<Waiter>(context.Waiters.Attach(item)).State =
+                     System.Data.Entity.EntityState.Modified;
+                 //command is not executed until it is actually saved.
+                 context.SaveChanges();
+             }
+         }
+
+         [DataObjectMethod(DataObjectMethodType.Delete, false)]
+         public void Waiter_Delete(Waiter item)
+         {
+             //set context
+             using (eRestaurantContext context = new eRestaurantContext())
+             {
+                 //look uo for the instance and record if found
+                 Waiter existing = context.Waiters.Find(item.WaiterID);
+                 //setup the command to execute the delete
+                 context.Waiters.Remove(existing);
+
+                 //command is not executed until it is actually saved.
+                 context.SaveChanges();
+             }
+         }
+
         [DataObjectMethod(DataObjectMethodType.Select, false)]
         public List<SpecialEvent> SpecialEvents_List()
         {
@@ -109,6 +192,8 @@ namespace eRestaurantSystem.BLL
 
 
         }
+
+
         #endregion
 
         #region Add,Update, Delete of CRUD for CQRS-Command Query Request seggregation
@@ -162,6 +247,9 @@ namespace eRestaurantSystem.BLL
                 context.SaveChanges();
             }
         }
+
+        
+
         #endregion
     }//eof class
 }//eof namespace
