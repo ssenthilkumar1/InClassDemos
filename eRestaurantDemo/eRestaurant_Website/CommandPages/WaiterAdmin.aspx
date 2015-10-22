@@ -9,24 +9,25 @@
     <uc1:MessageUserControl runat="server" ID="MessageUserControl" />
 
     <br />
-    <asp:Label ID="WaiterID" runat="server" Text="Waiter Name"></asp:Label>
+  <asp:Label ID="Label1" runat="server" Text="Waiter Names"></asp:Label>
 
-    <asp:DropDownList ID="WaiterList" runat="server" AppendDataBoundItems="True" DataSourceID="ODSWaiterList" DataTextField="WaiterID" DataValueField="WaiterID" Height="17px" Width="360px">
+    <asp:DropDownList ID="WaiterList" runat="server"
+         DataSourceID="ODSWaiterList" DataTextField="FullName" 
+        DataValueField="WaiterID" Height="17px" Width="360px" 
+       
+        >
 
-        <asp:ListItem Value="0">Select a Waiter</asp:ListItem>
+       
     </asp:DropDownList>
     <asp:LinkButton ID="FetchWaiter" runat="server" OnClick="FetchWaiter_Click">Fetch Waiter</asp:LinkButton>
-    <asp:ObjectDataSource ID="ODSWaiterList" runat="server" DataObjectTypeName="eRestaurantSystem.DAL.Entities.Waiter" DeleteMethod="Waiter_Delete" InsertMethod="Waiter_Add" OldValuesParameterFormatString="original_{0}" SelectMethod="GetWaiterByID" TypeName="eRestaurantSystem.BLL.AdminController" UpdateMethod="Waiter_Update">
-        <SelectParameters>
-            <asp:Parameter Name="waiterid" Type="Int32" />
-        </SelectParameters>
+    <asp:ObjectDataSource ID="ODSWaiterList" runat="server" DataObjectTypeName="eRestaurantSystem.DAL.Entities.Waiter" DeleteMethod="Waiter_Delete" OldValuesParameterFormatString="original_{0}" SelectMethod="Waiters_List" TypeName="eRestaurantSystem.BLL.AdminController" UpdateMethod="Waiter_Update">
     </asp:ObjectDataSource>
     <br />
     <table style="width: 70%">
         <tr>
             <td>ID</td>
             <td>
-                <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
+                <asp:Label ID="WaiterID" runat="server" Text=" "></asp:Label>
             </td>
         </tr>
         <tr>
@@ -71,10 +72,10 @@
         </tr>
         <tr>
             <td>
-                <asp:LinkButton ID="WaiterInsert" runat="server">Insert</asp:LinkButton>
+                <asp:LinkButton ID="WaiterInsert" runat="server" OnClick="WaiterInsert_Click">Insert</asp:LinkButton>
             </td>
             <td>
-                <asp:LinkButton ID="WaiterUpdate" runat="server">Update</asp:LinkButton>
+                <asp:LinkButton ID="WaiterUpdate" runat="server" OnClick="WaiterUpdate_Click">Update</asp:LinkButton>
             </td>
         </tr>
     </table>
