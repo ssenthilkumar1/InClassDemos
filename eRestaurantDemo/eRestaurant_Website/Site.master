@@ -58,7 +58,8 @@
                         <li><a runat="server" href="~/SamplePage/ListView">ListView Display</a></li>
                         <li><a runat="server" href="~/CommandPages/SpecialEventAdmin">LV CRUD</a></li>
                         <li><a runat="server" href="~/CommandPages/WaiterAdmin">Single CRUD</a></li>
-                        <li><a runat="server" href="~/Reports/CategoryMenuItemsReport">Single CRUD</a></li>
+                        <li><a runat="server" href="~/Reports/CategoryMenuItemsReport">Cat Report</a></li>
+                         <li><a runat="server" href="~/Reports/WaiterBillingReport">Bill Report</a></li>
                             <li><a runat="server" href="~/About">About</a></li>
                         <li><a runat="server" href="~/Contact">Contact</a></li>
                     </ul>

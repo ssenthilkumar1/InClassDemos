@@ -63,6 +63,7 @@
     <Compile Include="DAL\eRestaurantContext.cs" />
     <Compile Include="DAL\POCOs\CategoryMenuItems.cs" />
     <Compile Include="DAL\POCOs\ReservationDetail.cs" />
+    <Compile Include="DAL\POCOs\WaiterBilling.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
